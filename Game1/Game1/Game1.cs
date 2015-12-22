@@ -9,7 +9,7 @@ namespace Game1
     /// </summary>
     public class Game1 : Game
     {
-        static SpriteFont Arial = this.Content.Load<SpriteFont>("Arial");
+        static SpriteFont Arial;
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
@@ -17,8 +17,8 @@ namespace Game1
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            Arial = this.Content.Load<SpriteFont>("Arial");
 
-            
         }
 
         /// <summary>
@@ -80,7 +80,7 @@ namespace Game1
             GraphicsDevice.Clear(Color.CornflowerBlue);
            
             spriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend);
-            
+            this.spriteBatch.DrawString(Arial, "Hello World.", new Vector2(0, 0), Color.WhiteSmoke, 0.0f, new Vector2(0,0), 1, SpriteEffects.None, 1.0f);
             spriteBatch.End();
 
             base.Draw(gameTime);
